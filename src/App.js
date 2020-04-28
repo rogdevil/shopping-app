@@ -1,19 +1,27 @@
 import React from "react";
+import {Switch, Route}  from 'react-router-dom';
 import logo from "./logo.svg";
 import "./App.css";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Cart from './components/Cart'
+import Navbar from './components/Navbar'
+import Product from './components/Product'
+import ProductList from './components/ProductList'
+import Default from './components/Default'
+import Details from './components/Details'
 
 function App() {
     return (
 
-    	<div className='container'>
-    		<div className='row'>
-    			<div className='col-6'>thsi shit worked</div>
-    			<div className='col-6'><span>
-    				<i className='fas fa-home' />
-    			</span></div>
-    		</div>
-    	</div>
+    	<React.Fragment>
+    		<Navbar />
+    		<Switch>
+    			<Route exact path='/' component={ProductList} />
+    			<Route path='/cart' component={Cart} />
+    			<Route path='/details' component={Details} />
+    			<Route  component={Default} />
+    		</Switch>
+    	</React.Fragment>
     );
 }
 
